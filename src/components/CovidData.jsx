@@ -125,7 +125,7 @@ export default class CovidData extends React.Component {
 							selectedCountry={this.state.selectedCountry}
 						/>
 					) : (
-						<CountryData stats={worldChart} selectedCountry="Global Numbers" />
+						<CountryData stats={worldChart} selectedCountry="WORLD" />
 					)}
 				</Container>
 				<footer>
@@ -141,7 +141,7 @@ export default class CovidData extends React.Component {
 						<Col md={{ span: 2, offset: 9 }}>
 							Created by{" "}
 							<a
-								href=""
+								href="https://github.com/singhdivjeet/COVID19-DASHBOARD"
 								target="_blank"
 								style={{ color: "white", textDecoration: "underline" }}
 							>

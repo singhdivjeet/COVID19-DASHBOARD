@@ -147,7 +147,7 @@ export default class Charts extends React.Component {
 	render() {
 		return (
 			<div style={{ display: "flex", justifyContent: "center" }}>
-				<div style={{ width: "50%", padding: "1rem" }}>
+				<div style={{ width: "50%", padding: "1rem", marginBottom: "3rem" }}>
 					<canvas id="myChart" ref={this.chartRef} />
 				</div>
 			</div>

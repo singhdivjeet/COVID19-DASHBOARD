@@ -30,7 +30,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	font-size: 2.25rem;
+	font-size: 2rem;
 	color: white;
 	font-weight: 500;
 	padding-bottom: 0.5rem;
@@ -76,7 +76,7 @@
 	padding: 10px;
 }
 
-.confirmed {
+/* .confirmed {
 	color: #0e50dd;
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	backdrop-filter: blur(2.5px);
@@ -110,6 +110,37 @@
 	-webkit-backdrop-filter: blur(2.5px);
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
+} */
+.confirmed {
+	color: #002c57;
+	background-image: linear-gradient(
+		rgb(165, 201, 253) 0%,
+		rgb(189, 229, 252) 100%
+	);
+}
+
+.recovered {
+	color: #005c25;
+	background-image: linear-gradient(
+		rgb(155, 232, 156) 0%,
+		rgb(205, 249, 125) 100%
+	);
+}
+
+.deaths {
+	color: #5a0401;
+	background-image: linear-gradient(
+		rgb(254, 134, 131) 0%,
+		rgb(255, 157, 155) 100%
+	);
+}
+
+.active {
+	color: #582801;
+	background-image: linear-gradient(
+		rgb(246, 206, 104) 0%,
+		rgb(253, 166, 130) 100%
+	);
 }
 
 @keyframes App-logo-spin {
