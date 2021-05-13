@@ -2,6 +2,7 @@ import React from "react";
 import CountryData from "./CountryData";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import SelectBox from "./SelectBox";
+import About from "./About";
 
 export default class CovidData extends React.Component {
 	constructor() {
@@ -17,15 +18,19 @@ export default class CovidData extends React.Component {
 		fetch("https://pomber.github.io/covid19/timeseries.json")
 			.then((response) => response.json())
 			.then((data) => {
+				// console.log(data);
 				var worldStats = { confirmed: 0, recovered: 0, deaths: 0 };
-				var countryArr = Object.keys(data).map((i) => i);
+				var countryArr = Object.keys(data).map((i) => i); //Learn
+				// console.log(countryArr);
 				countryArr.forEach((country) => {
 					let countryData = data[country];
+
 					// pick last object for today data
 					countryData = countryData[countryData.length - 1];
 					worldStats.confirmed += countryData.confirmed;
 					worldStats.recovered += countryData.recovered;
 					worldStats.deaths += countryData.deaths;
+					// console.log(countryData, worldStats);
 				});
 				// world data
 				var worldChart = [];
@@ -47,6 +52,7 @@ export default class CovidData extends React.Component {
 						}
 					});
 				});
+				// console.log(worldChart);
 				this.setState({
 					countryArr: countryArr,
 					data: data,
@@ -74,11 +80,36 @@ export default class CovidData extends React.Component {
 			selectedCountry: "",
 		});
 	}
+
 	render() {
 		const countryStats = this.state.data[this.state.selectedCountry];
 		const worldChart = this.state.worldChart;
 		const lastUpdated =
 			worldChart !== undefined ? worldChart[worldChart.length - 1].date : "";
+		// var objDate = new Date(lastUpdated).toLocaleString().slice(0, -13);
+
+		var monthNames = [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec",
+		];
+
+		function dateFormat(d) {
+			var t = new Date(d);
+			return (
+				t.getDate() + " " + monthNames[t.getMonth()] + " " + t.getFullYear()
+			);
+		}
+
 		return (
 			<Container
 				fluid
@@ -87,10 +118,10 @@ export default class CovidData extends React.Component {
 			>
 				{/*Header starts here */}
 				<Row className="App-header">
-					<Col md={3} style={{ textAlign: "left" }}>
+					<Col md={3} style={{ textAlign: "left", width: "100%" }}>
 						COVID19 DASHBOARD
 					</Col>
-					{/*Select Box for country search ends here */}
+					{/*Select Box for country search starts here */}
 					<SelectBox
 						onChangeFunction={this.getData}
 						countryArr={this.state.countryArr}
@@ -115,7 +146,8 @@ export default class CovidData extends React.Component {
 						xs={{ span: 6, offset: 5 }}
 						style={{ fontSize: 16, marginTop: "1rem" }}
 					>
-						Last Updated: {lastUpdated}
+						Last Updated : {dateFormat(lastUpdated)}
+						{/* {objDate} */}
 					</Col>
 				</Row>
 				<Container fluid>
@@ -127,28 +159,45 @@ export default class CovidData extends React.Component {
 					) : (
 						<CountryData stats={worldChart} selectedCountry="WORLD" />
 					)}
+					{/* <About /> */}
 				</Container>
 				<footer>
-					<Row className="App-footer">
-						<Col md={1}>
+					<div className="App-footer">
+						<div>
 							<a
 								href="https://github.com/pomber/covid19"
-								style={{ color: "white", textDecoration: "underline" }}
+								style={{
+									color: "white",
+									textDecoration: "underline",
+									marginLeft: "1rem",
+								}}
 							>
 								Datasource
 							</a>
-						</Col>
-						<Col md={{ span: 2, offset: 9 }}>
+						</div>
+						{/* <Col>
+						
+						</Col> */}
+						<div>
 							Created by{" "}
 							<a
 								href="https://github.com/singhdivjeet/COVID19-DASHBOARD"
 								target="_blank"
-								style={{ color: "white", textDecoration: "underline" }}
+								style={{ color: "white" }}
 							>
-								Divjeet Singh
+								Divjeet{" "}
 							</a>
-						</Col>
-					</Row>
+							&
+							<a
+								href="https://github.com/singhdivjeet/COVID19-DASHBOARD"
+								target="_blank"
+								style={{ color: "white", marginRight: "1rem" }}
+							>
+								{" "}
+								Shubham
+							</a>
+						</div>
+					</div>
 				</footer>
 			</Container>
 		);

@@ -22,6 +22,7 @@ export default class CaseChart extends React.Component {
 			let dailyArr = [];
 			props.chartData.forEach((element, index) => {
 				dailyArr.push(element - props.chartData[index - 1]);
+				// console.log(dailyArr, element, props.chartData[index - 1]);
 			});
 
 			const myChartRef = this.chartRef.current.getContext("2d");
@@ -36,9 +37,9 @@ export default class CaseChart extends React.Component {
 						labels: props.dates.splice(-20),
 						datasets: [
 							{
-								label: "Confirmed",
+								label: "",
 								data: dailyArr.splice(-20),
-								borderColor: "#011627",
+								borderColor: "#14213d",
 								fill: false,
 								pointRadius: 0,
 							},
@@ -90,7 +91,7 @@ export default class CaseChart extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div style={{ backgroundColor: "" }}>
 				<canvas id="myChart" ref={this.chartRef} />
 			</div>
 		);

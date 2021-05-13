@@ -14,9 +14,15 @@ function CountryData(props) {
 					{selectedCountry}
 				</Col>
 			</Row>
-			<Today data={chartData} />
-			<div style={{ display: !selectedCountry && "none" }}>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-around",
+					marginBottom: "2rem",
+				}}
+			>
 				<Charts chartData={chartData} selectedCountry={selectedCountry} />
+				<Today data={chartData} />
 			</div>
 		</Container>
 	);

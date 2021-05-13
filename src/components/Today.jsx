@@ -1,5 +1,5 @@
 import React from "react";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import CaseData from "./CaseData";
 
 function Today(props) {
@@ -17,25 +17,40 @@ function Today(props) {
 			dates.push(data.date);
 		});
 		return (
-			<Row className="today-row " style={{ justifyContent: "space-evenly" }}>
-				<CaseData
-					class="confirmed"
-					data={confirmed}
-					dates={dates}
-					title="Confirmed"
-				/>
+			<div>
+				<Row style={{}}>
+					<Col md={6} className="today-row">
+						<CaseData
+							class="confirmed"
+							data={confirmed}
+							dates={dates}
+							title="Confirmed"
+						/>
 
-				<CaseData
-					class="recovered"
-					data={recovered}
-					dates={dates}
-					title="Recovered"
-				/>
+						<CaseData
+							class="recovered"
+							data={recovered}
+							dates={dates}
+							title="Recovered"
+						/>
+					</Col>
+					<Col md={6} className="today-row">
+						<CaseData
+							class="deaths"
+							data={deaths}
+							dates={dates}
+							title="Deaths"
+						/>
 
-				<CaseData class="deaths" data={deaths} dates={dates} title="Deaths" />
-
-				<CaseData class="active" data={active} dates={dates} title="Active" />
-			</Row>
+						<CaseData
+							class="active"
+							data={active}
+							dates={dates}
+							title="Active"
+						/>
+					</Col>
+				</Row>
+			</div>
 		);
 	} else {
 		return <></>;

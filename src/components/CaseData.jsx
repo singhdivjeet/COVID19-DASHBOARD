@@ -11,7 +11,7 @@ function CaseData(props) {
 			? "-"
 			: "";
 	return (
-		<Col md={2} sm={4} xs={4} className={props.class}>
+		<div className={props.class}>
 			<div style={{}}>
 				{props.data[props.data.length - 1]}
 				<br />
@@ -22,7 +22,7 @@ function CaseData(props) {
 				</div>
 			</div>
 			<CaseChart chartData={props.data} dates={props.dates} color="#005C25" />
-		</Col>
+		</div>
 	);
 }
 
