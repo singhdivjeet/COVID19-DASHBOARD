@@ -181,7 +181,7 @@ export default class CovidData extends React.Component {
 						<div>
 							Created by{" "}
 							<a
-								href="https://github.com/singhdivjeet/COVID19-DASHBOARD"
+								href="https://www.linkedin.com/in/divjeet-singh/"
 								target="_blank"
 								style={{ color: "white" }}
 							>
@@ -189,7 +189,7 @@ export default class CovidData extends React.Component {
 							</a>
 							&
 							<a
-								href="https://github.com/shubhpatr/COVID19-DASHBOARD"
+								href="https://www.linkedin.com/in/shubhammohapatra/"
 								target="_blank"
 								style={{ color: "white", marginRight: "1rem" }}
 							>
