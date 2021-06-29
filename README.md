@@ -38,6 +38,7 @@ List of major frameworks that we used to build our project.
 * [Chart.js](https://www.chartjs.org/)
 
 ## Screenshot
+![alt text](https://raw.githubusercontent.com/singhdivjeet/COVID19-DASHBOARD/master/ss.png)
 
 ## Getting Started
 To get a local copy up and running follow these simple steps.
